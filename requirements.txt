@@ -1,0 +1,6 @@
+dvc
+numpy
+pandas
+dvc-s3
+scikit-learn
+mlflow
