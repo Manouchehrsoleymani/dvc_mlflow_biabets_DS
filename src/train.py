@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split,GridSearchCV
 from urllib.parse import urlparse
 import yaml
 
-dagshub.init(repo_owner='manouchehr.sgh', repo_name='dvc_mlflow_biabets_DS', mlflow=True)
+# dagshub.init(repo_owner='manouchehr.sgh', repo_name='dvc_mlflow_biabets_DS', mlflow=True)
 params=yaml.safe_load(open("params.yaml"))['train']
 
 def hyperparameters(X_train,y_train,param_grid):
@@ -24,8 +24,8 @@ def train(data_path,model_path,random_state,n_stimator,max_depth):
     X=data.drop(columns=['Outcome'])
     y=data['Outcome']
 
-    # mlflow.set_tracking_uri("https://dagshub.com/manouchehr.sgh/dvc_mlflow_biabets_DS/experiments")
-
+    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    mlflow.set_experiment('Indian_Diabets')
 
     with mlflow.start_run():
         X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2)
@@ -35,7 +35,7 @@ def train(data_path,model_path,random_state,n_stimator,max_depth):
         params_grid={
             'n_estimators':[100,200],
             'max_depth':[5,10,None],
-            'min_sample+split':[2,5],
+            'min_samples_split':[2,5],
             'min_samples_leaf':[1,2]
         }
 
