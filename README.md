@@ -37,4 +37,15 @@ To manage the workflow of training Model in machine learning algorithms. it Stor
 
 # Diabets Data-Set
 
+Data-Set includes some Columns such as __Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age,Outcome__
 
+# To Run the scripts:
+``` 
+- python -m venv .venv
+- source .venv/bin/activate
+- pip install -U pip
+- pip install -r requirements.txt
+- python src/preprocessing.py
+- python src/train.py
+- pythin src/evaluate.py
+```
