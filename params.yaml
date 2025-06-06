@@ -6,5 +6,5 @@ train:
   data: data/raw/data.csv
   model: model/diabet_model.pkl
   random_state: 42
-  n_stimator: 100
+  n_estimators: 100
   max_depth: 5
