@@ -1,8 +1,8 @@
+import mlflow
 import pandas as pd
 import pickle
 from sklearn.metrics import accuracy_score
 import yaml
-import mlflow
 
 # Load parameters from params.yaml
 params = yaml.safe_load(open("params.yaml"))["train"]
@@ -16,7 +16,7 @@ def evaluate(data_path,model_path):
 
     ## load the model from the disk
     model=pickle.load(open(model_path,'rb'))
-    
+
     # prediction of model
     y_pred=model.predict(X)
     accuracy=accuracy_score(y,y_pred)
