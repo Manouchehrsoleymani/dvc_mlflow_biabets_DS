@@ -1,9 +1,9 @@
 stages:
   preprocess:
-    cmd: python src/preprocess.py
+    cmd: python src/preprocessing.py
     deps:
     - data/raw/data.csv
-    - src/preprocess.py
+    - src/preprocessing.py
     params:
     - preprocess.input
     - preprocess.output
@@ -21,10 +21,10 @@ stages:
     - train.n_estimators
     - train.random_state
     outs:
-    - models/model.pkl
+    - model/diabet_model.pkl
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - data/raw/data.csv
-    - models/model.pkl
+    - model/diabet_model.pkl
     - src/evaluate.py
